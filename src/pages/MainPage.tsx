@@ -14,7 +14,7 @@ export default function MainPage() {
     }]
     return (
         <>
-            <div className="flex justify-between m-10">
+            <div className="flex justify-between my-4 mx-6">
                 <div className="mx-4 flex flex-col space-y-4">
                     {Dropbox(years)}
                     <button className="btn text-atom-gold rounded-none bg-[#273888]">Все заявки</button>
