@@ -4,6 +4,7 @@ import plugin from "tailwindcss/plugin";
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    
     extend: {
       colors: {
         atom: {
@@ -16,5 +17,18 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          "primary": "#c0a96e",
+          "secondary": "#f0e4b0",
+          "accent": "#c0a96e",
+          "neutral": "#ffffff",
+          "base-100": "#172163",
+        },
+      },
+    ],
+  },
 };
