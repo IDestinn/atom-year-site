@@ -1,10 +1,12 @@
 export default function NavigationBar() {
   return (
-    <nav className="z-50 sticky top-0 flex items-center bg-atom-blue-20 h-16 justify-left p-[1rem] gap-[2rem]">
+    <nav className="sticky top-0 z-50 flex h-16 items-center justify-start gap-8 bg-atom-blue-20 p-4 m-2">
       <Logo />
       {PageLink("Главная", "https://example.com")}
-      {PageLink("Отчет", "https://youtube.com")}
+      {PageLink("Отчеты", "https://youtube.com")}
       {PageLink("Папки обмена", "https://www.youtube.com/watch?v=EzkUe9FzPQk")}
+      <div />
+      <div className="flex flex-row"></div>
     </nav>
   );
 }
@@ -16,7 +18,10 @@ function Logo() {
 function PageLink(name: string, url: string) {
   return (
     <div className="flex flex-row">
-      <a href={url} className="items-center p-8 justify-center text-atom-gold">
+      <a
+        href={url}
+        className="items-center justify-center p-2 text-atom-gold font-bold"
+      >
         {name}
       </a>
     </div>
