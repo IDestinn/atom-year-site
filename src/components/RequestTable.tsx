@@ -1,15 +1,6 @@
-export default function RequestTable() {
-    var tableInfo: TableInfo[] = [{
-        id: 50,
-        requestType: "Индивидуальная",
-        teamName: "Кросс-функциондльная команда создавшая устойчивую систему взаимодействия с государственными и налоговыми органами",
-        division: "Росатом",
-        organization: "ГК Росатом",
-        nomination: "Победная",
-        status: "На рассмотрении",
-    }]
+export default function RequestTable(tableInfo: TableInfo[]) {
     const tableInfoParsed = tableInfo.map(row =>
-        <tr key={row.id} className="hover">
+        <tr key={row.id} className="hover border-b-atom-gold">
             <td>{row.id}</td>
             {row.requestType == "Индивидуальная" ? (
                 <td><SoloLogo /></td>
@@ -28,7 +19,7 @@ export default function RequestTable() {
             <table className="table text-atom-gold">
                 {/* head */}
                 <thead>
-                    <tr className="text-atom-gold">
+                    <tr className="text-atom-gold bg-[#1e2973] border-b-atom-gold">
                         <th>ИД</th>
                         <th>Тип заявки</th>
                         <th>Название команды проекта</th>
@@ -63,14 +54,4 @@ function GroupLogo() {
                 strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
     );
-}
-
-type TableInfo = {
-    id: number;
-    requestType: string;
-    teamName: string;
-    division: string;
-    organization: string;
-    nomination: string;
-    status: string;
 }

@@ -23,7 +23,7 @@ export default function NavBar2(notificationAmount: number, userFullName: string
                         </ul>
                     </div>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end float-right justify-end">
                     <HelpIcon />
                     {NotificationIcon(notificationAmount)}
                     {WhoIAm(userFullName, userRole)}
