@@ -1,10 +1,9 @@
+/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
-import plugin from "tailwindcss/plugin";
 
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    
     extend: {
       colors: {
         atom: {
@@ -22,10 +21,10 @@ export default {
     themes: [
       {
         mytheme: {
-          "primary": "#c0a96e",
-          "secondary": "#f0e4b0",
-          "accent": "#c0a96e",
-          "neutral": "#ffffff",
+          primary: "#c0a96e",
+          secondary: "#f0e4b0",
+          accent: "#c0a96e",
+          neutral: "#ffffff",
           "base-100": "#172163",
         },
       },
