@@ -5,8 +5,8 @@ export default function NavBar2(
 ) {
   return (
     <>
-      <nav className="navbar bg-base-100">
-        <div className="navbar-start">
+      <nav className="navbar justify-between bg-base-100">
+        <div className="navbar-start w-3/4">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -27,7 +27,7 @@ export default function NavBar2(
             </div>
             <ul
               tabIndex={0}
-              className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
+              className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-atom-light-blue p-2 shadow"
             >
               <li>{PageLink("Главная", "https://example.com")}</li>
               <li>{PageLink("Отчеты", "https://example.com")}</li>
@@ -43,7 +43,7 @@ export default function NavBar2(
             </ul>
           </div>
         </div>
-        <div className="navbar-end float-right justify-end">
+        <div className="navbar-end float-right w-1/4 justify-end">
           <HelpIcon />
           {NotificationIcon(notificationAmount)}
           {WhoIAm(userFullName, userRole)}
