@@ -24,11 +24,11 @@ export default function RequestTable() {
       <td>{row.id}</td>
       {row.is_team_type ? (
         <td>
-          <SoloLogo />
+          <GroupLogo />
         </td>
       ) : (
         <td>
-          <GroupLogo />
+          <SoloLogo />
         </td>
       )}
       <td>{row.project_team_name}</td>
