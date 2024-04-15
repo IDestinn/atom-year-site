@@ -1,8 +1,28 @@
-export default function RequestTable(tableInfo: TableInfo[]) {
-  const tableInfoParsed = tableInfo.map((row) => (
+import { useQuery } from "@tanstack/react-query";
+
+export default function RequestTable() {
+  const URL = "http://127.0.0.1:8000";
+  const {
+    data: tableInfo,
+    isLoading,
+    error,
+  } = useQuery({
+    queryFn: () => fetch(`${URL}/requests/`).then((res) => res.json()),
+    queryKey: ["getRequests"],
+  });
+
+  if (isLoading) {
+    return <div>Загрузка...</div>;
+  }
+
+  if (error) {
+    return <div>Что-то пошло не так! Повторите еще раз.{error.message}</div>;
+  }
+
+  const tableInfoParsed = tableInfo?.map((row: TableInfo) => (
     <tr key={row.id} className="hover border-b-atom-gold">
       <td>{row.id}</td>
-      {row.requestType == "Индивидуальная" ? (
+      {row.is_team_type ? (
         <td>
           <SoloLogo />
         </td>
@@ -11,10 +31,10 @@ export default function RequestTable(tableInfo: TableInfo[]) {
           <GroupLogo />
         </td>
       )}
-      <td>{row.teamName}</td>
+      <td>{row.project_team_name}</td>
       <td>{row.division}</td>
       <td>{row.organization}</td>
-      <td>{row.nomination}</td>
+      <td>{row.nomination_name}</td>
       <td>{row.status}</td>
     </tr>
   ));
@@ -37,6 +57,16 @@ export default function RequestTable(tableInfo: TableInfo[]) {
       </table>
     </div>
   );
+}
+
+interface TableInfo {
+  id: number;
+  is_team_type: boolean;
+  project_team_name: string;
+  division: string;
+  organization: string;
+  nomination_name: string;
+  status: string;
 }
 
 function SoloLogo() {

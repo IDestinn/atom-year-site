@@ -1,20 +1,11 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Dropbox from "../components/Dropbox";
 import RequestTable from "../components/RequestTable";
 
 export default function MainPage() {
   const years: number[] = [2023, 2024];
-  const tableInfo: TableInfo[] = [
-    {
-      id: 50,
-      requestType: "Индивидуальная",
-      teamName:
-        "Кросс-функциондльная команда создавшая устойчивую систему взаимодействия с государственными и налоговыми органами",
-      division: "Росатом",
-      organization: "ГК Росатом",
-      nomination: "Победная",
-      status: "На рассмотрении",
-    },
-  ];
+  const queryClient = new QueryClient();
+
   return (
     <>
       <div className="mx-6 my-4 flex justify-between">
@@ -45,7 +36,9 @@ export default function MainPage() {
               СОЗДАТЬ ЗАЯВКУ
             </button>
           </span>
-          {RequestTable(tableInfo)}
+          <QueryClientProvider client={queryClient}>
+            <RequestTable />
+          </QueryClientProvider>
         </div>
       </div>
     </>
