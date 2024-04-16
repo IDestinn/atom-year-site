@@ -1,54 +1,32 @@
-export default function NavBar2(
+export default function NavBar(
   notificationAmount: number,
   userFullName: string,
   userRole: string
 ) {
   return (
     <>
-      <nav className="navbar justify-between bg-base-100">
-        <div className="navbar-start w-3/4">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke="#c0a96e"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-atom-light-blue p-2 shadow"
-            >
-              <li>{PageLink("Главная", "https://example.com")}</li>
-              <li>{PageLink("Отчеты", "https://example.com")}</li>
-              <li>{PageLink("Папка обмена", "https://example.com")}</li>
-            </ul>
+      <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-14 max-w-screen-2xl items-center">
+          <div className="mr-4 hidden md:flex">
+            <a className="mr-6 flex items-center space-x-2" href="/">
+              <Logo />
+            </a>
+            <nav className="flex items-center gap-4 text-sm lg:gap-6">
+              {PageLink("Главная", "/")}
+              {PageLink("Отчеты", "/")}
+              {PageLink("Папка обмена", "/")}
+            </nav>
           </div>
-          <Logo />
-          <div className="hidden lg:flex">
-            <ul className="menu menu-horizontal px-3">
-              <li>{PageLink("Главная", "https://example.com")}</li>
-              <li>{PageLink("Отчеты", "https://example.com")}</li>
-              <li>{PageLink("Папка обмена", "https://example.com")}</li>
-            </ul>
+
+          <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+            <nav className="flex items-center">
+              <HelpIcon />
+              {NotificationIcon(notificationAmount)}
+              {WhoIAm(userFullName, userRole)}
+            </nav>
           </div>
         </div>
-        <div className="navbar-end float-right w-1/4 justify-end">
-          <HelpIcon />
-          {NotificationIcon(notificationAmount)}
-          {WhoIAm(userFullName, userRole)}
-        </div>
-      </nav>
+      </header>
     </>
   );
 }
@@ -56,8 +34,8 @@ export default function NavBar2(
 function WhoIAm(login: string, role: string) {
   return (
     <div className="pl-8">
-      <p className="font-bold text-atom-gold">{login}</p>
-      <p className="text-atom-gold">{role}</p>
+      <p className="text-foreground font-bold">{login}</p>
+      <p className="text-foreground">{role}</p>
     </div>
   );
 }
@@ -118,7 +96,10 @@ function Logo() {
 
 function PageLink(name: string, url: string) {
   return (
-    <a href={url} className="font-bold text-atom-gold">
+    <a
+      className="font-bold text-foreground transition-colors hover:text-foreground/80"
+      href={url}
+    >
       {name}
     </a>
   );
