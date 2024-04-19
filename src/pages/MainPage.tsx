@@ -18,7 +18,7 @@ export default function MainPage() {
         <div className="mx-4 flex flex-col space-y-4">
           <span className="float-right flex flex-row justify-end text-right">
             <Button>ПАМЯТКА ПРОГРАММЫ</Button>
-            <Button>СОЗДАТЬ ЗАЯВКУ</Button>
+            <Button variant="secondary">СОЗДАТЬ ЗАЯВКУ</Button>
           </span>
           <QueryClientProvider client={queryClient}>
             <RequestTable />
