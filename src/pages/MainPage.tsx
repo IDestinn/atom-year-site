@@ -1,11 +1,11 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Dropbox from "../components/Dropbox";
-import RequestTable from "../components/RequestTable";
 import ButtonGroup from "../components/ButtonGroup";
 import { Button } from "../components/ui/button";
+import RequestsForm from "@/components/RequestTable/Page";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export default function MainPage() {
-  const years: number[] = [2023, 2024];
+  const years: string[] = ["2023", "2024"];
   const queryClient = new QueryClient();
 
   return (
@@ -21,7 +21,7 @@ export default function MainPage() {
             <Button variant="secondary">СОЗДАТЬ ЗАЯВКУ</Button>
           </span>
           <QueryClientProvider client={queryClient}>
-            <RequestTable />
+            <RequestsForm />
           </QueryClientProvider>
         </div>
       </div>
