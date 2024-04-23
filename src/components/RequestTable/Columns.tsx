@@ -1,7 +1,8 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { User, Users } from "lucide-react";
+import { ArrowUpDown, User, Users } from "lucide-react";
+import { Button } from "../ui/button";
 
 export type Request = {
   id: number;
@@ -16,7 +17,17 @@ export type Request = {
 export const columns: ColumnDef<Request>[] = [
   {
     accessorKey: "id",
-    header: "ИД",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          ИД
+          <ArrowUpDown className="ml-2 size-4" />
+        </Button>
+      );
+    },
   },
   {
     accessorKey: "is_team_type",
