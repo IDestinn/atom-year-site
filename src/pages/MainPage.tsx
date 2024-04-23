@@ -1,9 +1,11 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Dropbox from "../components/Dropbox";
-import RequestTable from "../components/RequestTable";
+import ButtonGroup from "../components/ButtonGroup";
+import { Button } from "../components/ui/button";
+import RequestsForm from "@/components/RequestTable/Page";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export default function MainPage() {
-  const years: number[] = [2023, 2024];
+  const years: string[] = ["2023", "2024"];
   const queryClient = new QueryClient();
 
   return (
@@ -11,33 +13,15 @@ export default function MainPage() {
       <div className="mx-6 my-4 flex justify-between">
         <div className="mr-4 flex flex-col space-y-4">
           {Dropbox(years)}
-          <button className="btn rounded-none bg-[#273888] text-atom-gold">
-            Все заявки
-          </button>
-          <button className="btn rounded-none bg-[#273888] text-atom-gold">
-            Мои заявки
-          </button>
-          <button className="btn rounded-none bg-[#273888] text-atom-gold">
-            Я участник
-          </button>
-          <button className="btn rounded-none bg-[#273888] text-atom-gold">
-            Заявки организации
-          </button>
-          <button className="btn rounded-none bg-[#273888] text-atom-gold">
-            Заявки дивизиона
-          </button>
+          <ButtonGroup />
         </div>
         <div className="mx-4 flex flex-col space-y-4">
           <span className="float-right flex flex-row justify-end text-right">
-            <button className="btn btn-outline btn-primary mx-5 rounded-none">
-              ПАМЯТКА ПРОГРАММЫ
-            </button>
-            <button className="btn btn-info mx-5 rounded-none font-bold text-atom-blue">
-              СОЗДАТЬ ЗАЯВКУ
-            </button>
+            <Button>ПАМЯТКА ПРОГРАММЫ</Button>
+            <Button variant="secondary">СОЗДАТЬ ЗАЯВКУ</Button>
           </span>
           <QueryClientProvider client={queryClient}>
-            <RequestTable />
+            <RequestsForm />
           </QueryClientProvider>
         </div>
       </div>
