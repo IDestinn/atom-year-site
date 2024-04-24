@@ -4,8 +4,8 @@ import { Button } from "../components/ui/button";
 import RequestsForm from "@/components/RequestTable/Page";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-export default function MainPage() {
-  const years: string[] = ["2023", "2024"];
+export default function RequestPage() {
+  const years: string[] = ["2022", "2023", "2024"];
   const queryClient = new QueryClient();
 
   return (
@@ -16,10 +16,13 @@ export default function MainPage() {
           <ButtonGroup />
         </div>
         <div className="mx-4 flex flex-col space-y-4">
-          <span className="float-right flex flex-row justify-end text-right">
-            <Button>ПАМЯТКА ПРОГРАММЫ</Button>
-            <Button variant="secondary">СОЗДАТЬ ЗАЯВКУ</Button>
-          </span>
+          <div className="flex flex-row items-center justify-between">
+            <h1 className="font-bold">ЗАЯВКИ</h1>
+            <span className="float-right justify-end text-right">
+              <Button>ПАМЯТКА ПРОГРАММЫ</Button>
+              <Button variant="secondary">СОЗДАТЬ ЗАЯВКУ</Button>
+            </span>
+          </div>
           <QueryClientProvider client={queryClient}>
             <RequestsForm />
           </QueryClientProvider>

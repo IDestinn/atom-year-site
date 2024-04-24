@@ -3,13 +3,13 @@ import { columns } from "./Columns";
 import { DataTable } from "../Data-table";
 
 export default function RequestsForm() {
-  const URL = "http://127.0.0.1:8000";
+  const URL = "http://127.0.0.1:8000/requests/";
   const {
     data: requests,
     isLoading,
     error,
   } = useQuery({
-    queryFn: () => fetch(`${URL}/requests/`).then((res) => res.json()),
+    queryFn: () => fetch(URL).then((res) => res.json()),
     queryKey: ["getRequests"],
   });
 
