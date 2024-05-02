@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { DataTable } from "../Data-table";
-import { Request, columns } from "./RequestColumns";
+import { Request, columns } from "./Columns";
 
 export default function RequestTable({ APIAddress }: { APIAddress: string }) {
   const { data, isLoading, isError } = useQuery<Request[]>({

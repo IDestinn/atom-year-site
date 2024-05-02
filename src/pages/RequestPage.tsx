@@ -1,7 +1,7 @@
 import Dropbox from "../components/Dropbox";
 import ButtonGroup from "../components/ButtonGroup";
 import { Button } from "../components/ui/button";
-import RequestTable from "@/components/RequestTable/Page";
+import RequestTable from "@/components/RequestTable/Render";
 
 export default function RequestPage() {
   const years: string[] = ["2022", "2023", "2024"];

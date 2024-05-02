@@ -12,9 +12,9 @@ export default function NavBar(userFullName: string, userRole: string) {
             </a>
             <nav className="flex items-center gap-4 text-sm lg:gap-6">
               {PageLink("Главная", "/")}
-              {PageLink("Заявки", "/")}
+              {PageLink("Заявки", "/requests")}
               {PageLink("Номинанты", "/")}
-              {PageLink("Номинации", "/")}
+              {PageLink("Номинации", "/nominations")}
               {PageLink("Критерии", "/")}
               {PageLink("Справка", "/")}
               {PageLink("Папка обмена", "/")}
