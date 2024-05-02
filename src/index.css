@@ -5,8 +5,8 @@
 @layer base {
   :root {
     color-scheme: dark;
-    --background: 233 62% 24%;
-    --foreground: 44 36% 58%;
+    --background: 232 62% 24%;
+    --foreground: 43 39% 59%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -14,8 +14,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 220 95% 23%;
-    --primary-foreground: 44 36% 58%;
+    --primary: 229 55% 34%;
+    --primary-foreground: 43 39% 59%;
 
     --secondary: 204 86% 59%;
     --secondary-foreground: 230 59 30%;
