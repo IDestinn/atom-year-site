@@ -40,6 +40,10 @@ export const columns: ColumnDef<Request>[] = [
   {
     accessorKey: "project_team_name",
     header: "Название команды проекта",
+    cell: ({ row }) => {
+      const project_team_name = row.getValue("project_team_name");
+      return project_team_name ? project_team_name : "Н/Д";
+    },
   },
   {
     accessorKey: "division",
