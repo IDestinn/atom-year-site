@@ -4,7 +4,7 @@ import { ColumnDef } from "@tanstack/react-table";
 
 export type Criterion = {
   name: string;
-  nomination: number;
+  nomination_name: string;
   nomination_type: string;
   criteria_type: string;
   description: string;
@@ -18,7 +18,7 @@ export const columns: ColumnDef<Criterion>[] = [
     header: "Название",
   },
   {
-    accessorKey: "nomination",
+    accessorKey: "nomination_name",
     header: "Номинация",
   },
   {

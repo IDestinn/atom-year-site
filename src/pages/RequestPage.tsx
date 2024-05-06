@@ -9,11 +9,11 @@ export default function RequestPage() {
   return (
     <>
       <div className="mx-6 my-4 flex justify-between">
-        <div className="mr-4 flex flex-col space-y-4">
+        <div className="mr-4 flex w-1/5 flex-col space-y-4">
           {Dropbox(years)}
           <ButtonGroup />
         </div>
-        <div className="mx-4 flex flex-col space-y-4">
+        <div className="ml-4 flex w-4/5 flex-col space-y-4">
           <div className="flex flex-row items-center justify-between">
             <h1 className="font-bold">ЗАЯВКИ</h1>
             <span className="float-right justify-end text-right">

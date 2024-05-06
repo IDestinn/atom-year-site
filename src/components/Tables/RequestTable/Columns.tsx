@@ -12,6 +12,8 @@ export type Request = {
   organization: string;
   nomination_name: string;
   status: string;
+  editor: string | null;
+  creator: string;
 };
 
 export const columns: ColumnDef<Request>[] = [
@@ -60,5 +62,17 @@ export const columns: ColumnDef<Request>[] = [
   {
     accessorKey: "status",
     header: "Статус заявки",
+  },
+  {
+    accessorKey: "editor",
+    header: "Редактор",
+    cell: ({ row }) => {
+      const editor = row.getValue("editor");
+      return editor ? editor : "Н/Д";
+    },
+  },
+  {
+    accessorKey: "creator",
+    header: "Создатель",
   },
 ];

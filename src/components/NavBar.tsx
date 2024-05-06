@@ -45,7 +45,9 @@ function WhoIAm(login: string, role: string) {
 function HelpIcon() {
   return (
     <Button className="rounded-full" variant="ghost" size="icon">
-      <CircleHelp />
+      <a href="/help">
+        <CircleHelp />
+      </a>
     </Button>
   );
 }
