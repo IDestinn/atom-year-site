@@ -9,6 +9,8 @@ import MainPage from "./pages/MainPage.tsx";
 import NominationsPage from "./pages/NominationsPage.tsx";
 import NomineePage from "./pages/NomineePage.tsx";
 import CriteriaPage from "./pages/CriteriaPage.tsx";
+import AddRequestPage from "./pages/AddRequestPage.tsx";
+import NoPage from "./pages/NoPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -20,9 +22,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Routes>
           <Route index element={<MainPage />} />
           <Route path="/requests" element={<RequestPage />} />
+          <Route path="/requests/add" element={<AddRequestPage />} />
           <Route path="/nominees" element={<NomineePage />} />
           <Route path="/nominations" element={<NominationsPage />} />
           <Route path="/criteria" element={<CriteriaPage />} />
+          <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

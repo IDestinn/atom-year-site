@@ -17,8 +17,10 @@ export default function RequestPage() {
           <div className="flex flex-row items-center justify-between">
             <h1 className="font-bold">ЗАЯВКИ</h1>
             <span className="float-right justify-end text-right">
-              <Button>ПАМЯТКА ПРОГРАММЫ</Button>
-              <Button variant="secondary">СОЗДАТЬ ЗАЯВКУ</Button>
+              <Button variant="outline">ПАМЯТКА ПРОГРАММЫ</Button>
+              <a href="/requests/add">
+                <Button variant="secondary">СОЗДАТЬ ЗАЯВКУ</Button>
+              </a>
             </span>
           </div>
           <RequestTable APIAddress="http://127.0.0.1:8000/requests/" />
