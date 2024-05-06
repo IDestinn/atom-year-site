@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { DataTable } from "../Data-table";
-import { Request, columns } from "./Columns";
+import { DataTable } from "../../Data-table";
+import { Nominee, columns } from "./Columns";
 
-export default function RequestTable({ APIAddress }: { APIAddress: string }) {
-  const { data, isLoading, isError } = useQuery<Request[]>({
+export default function CriteriaTable({ APIAddress }: { APIAddress: string }) {
+  const { data, isLoading, isError } = useQuery<Nominee[]>({
     queryKey: ["request-data", APIAddress],
     queryFn: async () => {
       try {
@@ -27,5 +27,6 @@ export default function RequestTable({ APIAddress }: { APIAddress: string }) {
     return <div>ОШИБКА ЗАГРУЗКИ ДАННЫХ!</div>;
   }
 
+  console.log(data);
   return <DataTable columns={columns} data={data || []} />;
 }

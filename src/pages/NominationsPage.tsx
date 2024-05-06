@@ -1,4 +1,4 @@
-import NominationTable from "@/components/NominationTable/Render";
+import NominationTable from "@/components/Tables/NominationTable/Render";
 import Dropbox from "../components/Dropbox";
 
 export default function NominationsPage() {

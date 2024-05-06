@@ -1,13 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { DataTable } from "../Data-table";
-import { Nomination, columns } from "./Columns";
+import { DataTable } from "../../Data-table";
+import { Request, columns } from "./Columns";
 
-export default function NominationTable({
-  APIAddress,
-}: {
-  APIAddress: string;
-}) {
-  const { data, isLoading, isError } = useQuery<Nomination[]>({
+export default function RequestTable({ APIAddress }: { APIAddress: string }) {
+  const { data, isLoading, isError } = useQuery<Request[]>({
     queryKey: ["request-data", APIAddress],
     queryFn: async () => {
       try {

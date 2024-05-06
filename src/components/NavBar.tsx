@@ -13,11 +13,10 @@ export default function NavBar(userFullName: string, userRole: string) {
             <nav className="flex items-center gap-4 text-sm lg:gap-6">
               {PageLink("Главная", "/")}
               {PageLink("Заявки", "/requests")}
-              {PageLink("Номинанты", "/")}
+              {PageLink("Номинанты", "/nominees")}
               {PageLink("Номинации", "/nominations")}
-              {PageLink("Критерии", "/")}
-              {PageLink("Справка", "/")}
-              {PageLink("Папка обмена", "/")}
+              {PageLink("Критерии", "/criteria")}
+              {PageLink("Папка обмена", "/filetrade")}
             </nav>
           </div>
 
