@@ -32,7 +32,7 @@ export default function StageStepper({ currentStep }: { currentStep: number }) {
       {steps.map((step, index) => (
         <React.Fragment key={index}>
           <div
-            className={`size-6 rounded-full border-2 ${activeColor(index)}`}
+            className={`size-5 rounded-full border-2 ${activeColor(index)}`}
           ></div>
           {isFinalStep(index) ? null : (
             <div className={`h-0.5 w-12 ${activeColor(index)}`}></div>
