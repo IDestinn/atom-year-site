@@ -36,6 +36,7 @@ export default function AddRequestPage() {
         <TabsContent value="criteria"></TabsContent>
         <TabsContent value="approval"></TabsContent>
       </Tabs>
+      <Button className="my-4">Сохранить в черновик</Button>
     </div>
   );
 }
@@ -127,7 +128,32 @@ function GoalsCard() {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <Checkbox />
+        <div className="grid grid-cols-2 gap-2">
+          <div className="flex items-center space-x-2">
+            <Checkbox id="new-products" />
+            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+              Новые продукты для российского и международных рынков
+            </p>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox id="achivment" />
+            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+              Достижение глобального лидерства в ряде передовых технологий
+            </p>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox id="powerup" />
+            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+              Повышение доли на международных рынках
+            </p>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox id="speedup" />
+            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+              Снижение себестоимости продукции и сроков протекания процессов
+            </p>
+          </div>
+        </div>
       </CardContent>
     </Card>
   );
@@ -140,7 +166,30 @@ function ConsentCard() {
         <CardTitle>Согласие участников</CardTitle>
       </CardHeader>
       <CardContent>
-        <p>Что-то там</p>
+        <div className="grid grid-cols-2 gap-4">
+          <p>Согласия на обработку персональных данных</p>
+          <p>*Тут будет блок для файлов*</p>
+        </div>
+        <div className="grid grid-cols-3 gap-4">
+          <div className="flex items-center space-x-2">
+            <Checkbox id="thats-all" />
+            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+              Загружены данные на обработку ПДН всех участников
+            </p>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox id="personal-data" />
+            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+              Согласие на обработку персональных данных
+            </p>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox id="other-personal-data" />
+            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+              Согласие на распространения персональных данных
+            </p>
+          </div>
+        </div>
       </CardContent>
     </Card>
   );
@@ -150,10 +199,37 @@ function ConditionsCard() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Условия участия</CardTitle>
+        <CardTitle>
+          Стратегические цели ГК Росатом, которым соответствует проект
+        </CardTitle>
       </CardHeader>
       <CardContent>
-        <p>Что-то там</p>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="flex items-center space-x-2">
+            <Checkbox id="year-exp" />
+            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+              Стаж работы в Росатоме более 1 года
+            </p>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox id="no-problems" />
+            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+              Отсутствие нарушений требований ОТ и ПБ
+            </p>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox id="discipline" />
+            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+              Отсутствуют дисциплинарные взыскания
+            </p>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox id="go-secret" />
+            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+              Данные не содержат гос. тайну
+            </p>
+          </div>
+        </div>
       </CardContent>
     </Card>
   );
