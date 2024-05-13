@@ -15,7 +15,7 @@ export default function RequestPage() {
         </div>
         <div className="ml-4 flex w-4/5 flex-col space-y-4">
           <div className="flex flex-row items-center justify-between">
-            <h1 className="font-bold">ЗАЯВКИ</h1>
+            <h1 className="text-2xl font-bold">ЗАЯВКИ</h1>
             <span className="float-right justify-end text-right">
               <Button variant="outline">ПАМЯТКА ПРОГРАММЫ</Button>
               <a href="/requests/add">

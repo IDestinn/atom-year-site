@@ -12,20 +12,27 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
+import { useQuery } from "@tanstack/react-query";
 
 export default function AddRequestPage() {
   return (
     <div className="mx-6 my-4">
       <div className="flex items-center justify-between">
-        <h1 className="font-bold">Новая заявка</h1>
+        <h1 className="text-2xl font-bold">НОВАЯ ЗАЯВКА</h1>
         <Button variant="outline">ПАМЯТКА ПРОГРАММЫ</Button>
       </div>
       <StageStepper currentStep={1} />
       <Tabs defaultValue="main" className="w-full">
         <TabsList>
-          <TabsTrigger value="main">Основные сведения</TabsTrigger>
-          <TabsTrigger value="criteria">Суть инициативы и критерии</TabsTrigger>
-          <TabsTrigger value="approval">Журнал согласований</TabsTrigger>
+          <TabsTrigger value="main" className="text-lg">
+            Основные сведения
+          </TabsTrigger>
+          <TabsTrigger value="criteria" className="text-lg">
+            Суть инициативы и критерии
+          </TabsTrigger>
+          <TabsTrigger value="approval" className="text-lg">
+            Журнал согласований
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="main">
           <div className="grid grid-cols-2 gap-4 p-5">
@@ -134,12 +141,44 @@ function RequestCard() {
 }
 
 function NomineesCard() {
+  type Nominee = {
+    id: number;
+    last_name: string;
+    first_name: string;
+    patronymic: string | null;
+  };
+  const { data: nominees } = useQuery<Nominee[]>({
+    queryKey: ["request-data", "http://127.0.0.1:8000/employees/"],
+    queryFn: async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/employees/");
+        if (!response.ok) {
+          throw new Error("Ошибка получения данных!");
+        }
+        const json = await response.json();
+        return json;
+      } catch (error) {
+        throw new Error("Поймана ошибка..");
+      }
+    },
+  });
+  const renderedNominees = nominees?.map((nominee) => (
+    <option
+      key={nominee.id}
+      value={`${nominee.last_name} ${nominee.first_name} ${nominee.patronymic || ""}`}
+    />
+  ));
+
   return (
     <Card>
       <CardHeader>
         <CardTitle>Номинанты</CardTitle>
       </CardHeader>
       <CardContent>
+        <div className="pb-2">
+          <Input id="selectedNominee" list="nominees" />
+          <datalist id="nominees">{renderedNominees}</datalist>
+        </div>
         <Button>Добавить</Button>
       </CardContent>
     </Card>

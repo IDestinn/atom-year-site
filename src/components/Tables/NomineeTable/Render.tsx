@@ -27,6 +27,5 @@ export default function CriteriaTable({ APIAddress }: { APIAddress: string }) {
     return <div>ОШИБКА ЗАГРУЗКИ ДАННЫХ!</div>;
   }
 
-  console.log(data);
   return <DataTable columns={columns} data={data || []} />;
 }

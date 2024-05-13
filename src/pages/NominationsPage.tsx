@@ -10,7 +10,7 @@ export default function NominationsPage() {
         <div className="mr-4 flex flex-col space-y-4">{Dropbox(years)}</div>
         <div className="mx-4 flex flex-col space-y-4">
           <div className="flex flex-row items-center justify-between">
-            <h1 className="font-bold">НОМИНАЦИИ</h1>
+            <h1 className="text-2xl font-bold">НОМИНАЦИИ</h1>
           </div>
           <NominationTable APIAddress="http://127.0.0.1:8000/nominations/" />
         </div>
