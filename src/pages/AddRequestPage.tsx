@@ -5,10 +5,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Select,
   SelectTrigger,
+  SelectValue,
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { Label } from "@radix-ui/react-label";
 
 export default function AddRequestPage() {
   return (
@@ -36,7 +39,12 @@ export default function AddRequestPage() {
         <TabsContent value="criteria"></TabsContent>
         <TabsContent value="approval"></TabsContent>
       </Tabs>
-      <Button className="my-4">Сохранить в черновик</Button>
+      <div className="text-right">
+        <Button className="my-3">Сохранить в черновик</Button>
+        <Button variant="secondary" className="my-3">
+          Создать PPTX
+        </Button>
+      </div>
     </div>
   );
 }
@@ -49,57 +57,76 @@ function RequestCard() {
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-2 gap-4 p-5">
-          <p>Год</p>
-          <p>2023</p>
+          <Label>Год</Label>
+          <Label>2023</Label>
 
-          <p>Вид заявки</p>
+          <Label>Вид заявки</Label>
           <Select>
-            <SelectTrigger className="w-[250px]"></SelectTrigger>
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
             <SelectContent>
-              <SelectItem key="solo" value="solo">
-                Индивидуальная
-              </SelectItem>
-              <SelectItem key="group" value="group">
+              <SelectItem value="solo">Индивидуальная</SelectItem>
+              <SelectItem value="group">
                 Групповая от 2 до 10 человек
               </SelectItem>
             </SelectContent>
           </Select>
 
-          <p>Название команды проекта</p>
+          <Label>Название команды проекта</Label>
+          <Input type="text" />
+
+          <Label>Дивизион</Label>
           <Select>
-            <SelectTrigger className="w-[250px]"></SelectTrigger>
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
             <SelectContent></SelectContent>
           </Select>
 
-          <p>Дивизион</p>
+          <Label>Организация</Label>
           <Select>
-            <SelectTrigger className="w-[250px]"></SelectTrigger>
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
             <SelectContent></SelectContent>
           </Select>
 
-          <p>Организация</p>
+          <Label>Тип номинации</Label>
           <Select>
-            <SelectTrigger className="w-[250px]"></SelectTrigger>
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="Дивизиональная номинация">
+                Дивизиональная номинация
+              </SelectItem>
+              <SelectItem value="Общедивизиональная (сквозные) номинация">
+                Общедивизиональная (сквозные) номинация
+              </SelectItem>
+              <SelectItem value="Общекорпоративная номинация">
+                Общекорпоративная номинация
+              </SelectItem>
+              <SelectItem value='Специальнвя номинация генерального директора ГК "Росатом"'>
+                Специальнвя номинация генерального директора ГК "Росатом"
+              </SelectItem>
+              <SelectItem value='Специальный приз председателя наблюдательного совета ГК "Росатом"'>
+                Специальный приз председателя наблюдательного совета ГК
+                "Росатом"
+              </SelectItem>
+            </SelectContent>
+          </Select>
+
+          <Label>Номинация</Label>
+          <Select>
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
             <SelectContent></SelectContent>
           </Select>
 
-          <p>Номинация</p>
-          <Select>
-            <SelectTrigger className="w-[250px]"></SelectTrigger>
-            <SelectContent></SelectContent>
-          </Select>
-
-          <p>Тип номинации</p>
-          <Select>
-            <SelectTrigger className="w-[250px]"></SelectTrigger>
-            <SelectContent></SelectContent>
-          </Select>
-
-          <p>Общая информация</p>
-          <Select>
-            <SelectTrigger className="w-[250px]"></SelectTrigger>
-            <SelectContent></SelectContent>
-          </Select>
+          <Label>Общая информация</Label>
+          <Input type="text" />
         </div>
       </CardContent>
     </Card>
@@ -131,27 +158,23 @@ function GoalsCard() {
         <div className="grid grid-cols-2 gap-2">
           <div className="flex items-center space-x-2">
             <Checkbox id="new-products" />
-            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-              Новые продукты для российского и международных рынков
-            </p>
+            <Label>Новые продукты для российского и международных рынков</Label>
           </div>
           <div className="flex items-center space-x-2">
             <Checkbox id="achivment" />
-            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+            <Label>
               Достижение глобального лидерства в ряде передовых технологий
-            </p>
+            </Label>
           </div>
           <div className="flex items-center space-x-2">
             <Checkbox id="powerup" />
-            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-              Повышение доли на международных рынках
-            </p>
+            <Label>Повышение доли на международных рынках</Label>
           </div>
           <div className="flex items-center space-x-2">
             <Checkbox id="speedup" />
-            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+            <Label>
               Снижение себестоимости продукции и сроков протекания процессов
-            </p>
+            </Label>
           </div>
         </div>
       </CardContent>
@@ -166,28 +189,22 @@ function ConsentCard() {
         <CardTitle>Согласие участников</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-2 gap-4">
-          <p>Согласия на обработку персональных данных</p>
-          <p>*Тут будет блок для файлов*</p>
+        <div className="mb-5 grid grid-cols-2 gap-4">
+          <Label>Согласия на обработку персональных данных</Label>
+          <Input type="file" id="consent" />
         </div>
         <div className="grid grid-cols-3 gap-4">
           <div className="flex items-center space-x-2">
             <Checkbox id="thats-all" />
-            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-              Загружены данные на обработку ПДН всех участников
-            </p>
+            <Label>Загружены данные на обработку ПДН всех участников</Label>
           </div>
           <div className="flex items-center space-x-2">
             <Checkbox id="personal-data" />
-            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-              Согласие на обработку персональных данных
-            </p>
+            <Label>Согласие на обработку персональных данных</Label>
           </div>
           <div className="flex items-center space-x-2">
             <Checkbox id="other-personal-data" />
-            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-              Согласие на распространения персональных данных
-            </p>
+            <Label>Согласие на распространения персональных данных</Label>
           </div>
         </div>
       </CardContent>
@@ -207,27 +224,19 @@ function ConditionsCard() {
         <div className="grid grid-cols-2 gap-2">
           <div className="flex items-center space-x-2">
             <Checkbox id="year-exp" />
-            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-              Стаж работы в Росатоме более 1 года
-            </p>
+            <Label>Стаж работы в Росатоме более 1 года</Label>
           </div>
           <div className="flex items-center space-x-2">
             <Checkbox id="no-problems" />
-            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-              Отсутствие нарушений требований ОТ и ПБ
-            </p>
+            <Label>Отсутствие нарушений требований ОТ и ПБ</Label>
           </div>
           <div className="flex items-center space-x-2">
             <Checkbox id="discipline" />
-            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-              Отсутствуют дисциплинарные взыскания
-            </p>
+            <Label>Отсутствуют дисциплинарные взыскания</Label>
           </div>
           <div className="flex items-center space-x-2">
             <Checkbox id="go-secret" />
-            <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-              Данные не содержат гос. тайну
-            </p>
+            <Label>Данные не содержат гос. тайну</Label>
           </div>
         </div>
       </CardContent>
