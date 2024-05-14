@@ -21,7 +21,7 @@ export default function AddRequestPage() {
         <h1 className="text-2xl font-bold">НОВАЯ ЗАЯВКА</h1>
         <Button variant="outline">ПАМЯТКА ПРОГРАММЫ</Button>
       </div>
-      <StageStepper currentStep={1} />
+      <StageStepper currentStep={0} />
       <Tabs defaultValue="main" className="w-full">
         <TabsList>
           <TabsTrigger value="main" className="text-lg">
@@ -57,6 +57,87 @@ export default function AddRequestPage() {
 }
 
 function RequestCard() {
+  type Division = {
+    name: string;
+    management_company: string;
+  };
+  const { data: divisions } = useQuery<Division[]>({
+    queryKey: ["request-data", "http://127.0.0.1:8000/divisions/"],
+    queryFn: async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/divisions/");
+        if (!response.ok) {
+          throw new Error("Ошибка получения данных!");
+        }
+        const json = await response.json();
+        return json;
+      } catch (error) {
+        throw new Error("Поймана ошибка..");
+      }
+    },
+  });
+  const renderedDivisions = divisions?.map((division) => (
+    <option
+      key={division.name}
+      value={division.name}
+      label={`Управляющая компания: ${division.management_company}`}
+    />
+  ));
+
+  type Organization = {
+    name: string;
+    division: string;
+  };
+  const { data: organizations } = useQuery<Organization[]>({
+    queryKey: ["request-data", "http://127.0.0.1:8000/organizations/"],
+    queryFn: async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/organizations/");
+        if (!response.ok) {
+          throw new Error("Ошибка получения данных!");
+        }
+        const json = await response.json();
+        return json;
+      } catch (error) {
+        throw new Error("Поймана ошибка..");
+      }
+    },
+  });
+  const renderedOrganizations = organizations?.map((organization) => (
+    <option
+      key={organization.name}
+      value={organization.name}
+      label={`Дивизион: ${organization.division}`}
+    />
+  ));
+
+  type Nomination = {
+    name: string;
+    type: string;
+  };
+  const { data: nominations } = useQuery<Nomination[]>({
+    queryKey: ["request-data", "http://127.0.0.1:8000/nominations/"],
+    queryFn: async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/nominations/");
+        if (!response.ok) {
+          throw new Error("Ошибка получения данных!");
+        }
+        const json = await response.json();
+        return json;
+      } catch (error) {
+        throw new Error("Поймана ошибка..");
+      }
+    },
+  });
+  const renderedNominations = nominations?.map((nomination) => (
+    <option
+      key={nomination.name}
+      value={nomination.name}
+      label={`Тип номинации: ${nomination.type}`}
+    />
+  ));
+
   return (
     <Card>
       <CardHeader>
@@ -84,20 +165,12 @@ function RequestCard() {
           <Input type="text" />
 
           <Label>Дивизион</Label>
-          <Select>
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent></SelectContent>
-          </Select>
+          <Input id="selectedDivision" list="divisions" />
+          <datalist id="divisions">{renderedDivisions}</datalist>
 
           <Label>Организация</Label>
-          <Select>
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent></SelectContent>
-          </Select>
+          <Input id="selectedOrganization" list="organizations" />
+          <datalist id="organizations">{renderedOrganizations}</datalist>
 
           <Label>Тип номинации</Label>
           <Select>
@@ -125,15 +198,15 @@ function RequestCard() {
           </Select>
 
           <Label>Номинация</Label>
-          <Select>
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent></SelectContent>
-          </Select>
+          <Input id="selectedNomination" list="nominations" />
+          <datalist id="nominations">{renderedNominations}</datalist>
 
           <Label>Общая информация</Label>
-          <Input type="text" />
+          <textarea
+            cols={40}
+            rows={5}
+            className="bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-foreground"
+          />
         </div>
       </CardContent>
     </Card>
@@ -175,7 +248,40 @@ function NomineesCard() {
         <CardTitle>Номинанты</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="pb-2">
+        <div className="grid grid-cols-2 gap-10 pb-5">
+          <div className="bg-background p-3">
+            <Label id="Nominee1">NomineePlaceholder</Label>
+          </div>
+          <div className="bg-background p-3">
+            <Label id="Nominee2">NomineePlaceholder</Label>
+          </div>
+          <div className="bg-background p-3">
+            <Label id="Nominee3">NomineePlaceholder</Label>
+          </div>
+          <div className="bg-background p-3">
+            <Label id="Nominee4">NomineePlaceholder</Label>
+          </div>
+          <div className="bg-background p-3">
+            <Label id="Nominee5">NomineePlaceholder</Label>
+          </div>
+          <div className="bg-background p-3">
+            <Label id="Nominee6">NomineePlaceholder</Label>
+          </div>
+          <div className="bg-background p-3">
+            <Label id="Nominee7">NomineePlaceholder</Label>
+          </div>
+          <div className="bg-background p-3">
+            <Label id="Nominee8">NomineePlaceholder</Label>
+          </div>
+          <div className="bg-background p-3">
+            <Label id="Nominee9">NomineePlaceholder</Label>
+          </div>
+          <div className="bg-background p-3">
+            <Label id="Nominee10">NomineePlaceholder</Label>
+          </div>
+        </div>
+        <hr className="-mt-1 mb-5 p-1" />
+        <div className="pb-3">
           <Input id="selectedNominee" list="nominees" />
           <datalist id="nominees">{renderedNominees}</datalist>
         </div>
