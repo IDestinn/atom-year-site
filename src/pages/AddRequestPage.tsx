@@ -47,7 +47,9 @@ export default function AddRequestPage() {
         <TabsContent value="approval"></TabsContent>
       </Tabs>
       <div className="text-right">
-        <Button className="my-3">Сохранить в черновик</Button>
+        <Button className="my-3" onClick={save}>
+          Сохранить в черновик
+        </Button>
         <Button variant="secondary" className="my-3">
           Создать PPTX
         </Button>
@@ -387,4 +389,8 @@ function ConditionsCard() {
       </CardContent>
     </Card>
   );
+}
+
+function save() {
+  console.log(document.getElementById("go-secret"));
 }
