@@ -252,34 +252,34 @@ function NomineesCard() {
       <CardContent>
         <div className="grid grid-cols-2 gap-10 pb-5">
           <div className="bg-background p-3">
-            <Label id="Nominee1">NomineePlaceholder</Label>
+            <Label id="Nominee1">Участник 1</Label>
           </div>
           <div className="bg-background p-3">
-            <Label id="Nominee2">NomineePlaceholder</Label>
+            <Label id="Nominee2">Участник 2</Label>
           </div>
           <div className="bg-background p-3">
-            <Label id="Nominee3">NomineePlaceholder</Label>
+            <Label id="Nominee3">Участник 3</Label>
           </div>
           <div className="bg-background p-3">
-            <Label id="Nominee4">NomineePlaceholder</Label>
+            <Label id="Nominee4">Участник 4</Label>
           </div>
           <div className="bg-background p-3">
-            <Label id="Nominee5">NomineePlaceholder</Label>
+            <Label id="Nominee5">Участник 5</Label>
           </div>
           <div className="bg-background p-3">
-            <Label id="Nominee6">NomineePlaceholder</Label>
+            <Label id="Nominee6">Участник 6</Label>
           </div>
           <div className="bg-background p-3">
-            <Label id="Nominee7">NomineePlaceholder</Label>
+            <Label id="Nominee7">Участник 7</Label>
           </div>
           <div className="bg-background p-3">
-            <Label id="Nominee8">NomineePlaceholder</Label>
+            <Label id="Nominee8">Участник 8</Label>
           </div>
           <div className="bg-background p-3">
-            <Label id="Nominee9">NomineePlaceholder</Label>
+            <Label id="Nominee9">Участник 9</Label>
           </div>
           <div className="bg-background p-3">
-            <Label id="Nominee10">NomineePlaceholder</Label>
+            <Label id="Nominee10">Участник 10</Label>
           </div>
         </div>
         <hr className="-mt-1 mb-5 p-1" />
