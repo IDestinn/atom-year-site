@@ -1,5 +1,3 @@
-"use client";
-
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, User, Users } from "lucide-react";
 import { Button } from "../../ui/button";

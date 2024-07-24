@@ -29,7 +29,7 @@ export default function StageStepper({ currentStep }: { currentStep: number }) {
 
   return (
     <div className="my-4 flex items-center justify-center">
-      {steps.map((step, index) => (
+      {steps.map((_step, index) => (
         <React.Fragment key={index}>
           <div
             className={`size-5 rounded-full border-2 ${activeColor(index)}`}
